@@ -1,0 +1,22 @@
+# [202. Happy Number](https://leetcode.com/problems/happy-number/)
+
+題目重點：set的應用
+
+
+```python
+class Solution:
+    def isHappy(self, n: int) -> bool:
+        tmp = set()
+        #tmp作為查詢用途，set的速度優於list
+        sum_square = 0
+        while (sum_square!=1):
+            sum_square = 0
+            for i in str(n):
+                sum_square += int(i)**2
+            print(sum_square)
+            if sum_square in tmp:
+                return False
+            tmp.add(sum_square)
+            n = sum_square
+        return True
+```
